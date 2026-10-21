@@ -1,0 +1,158 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Aim Navigator design system.
+ * Light = "Chart Paper", Dark = "Night Sky". Colors come from the logo:
+ * navy ink, compass teal and the gold North Star.
+ * The theme toggle only switches the .dark class on <html>.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-star: var(--star);
+  --color-star-foreground: var(--star-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--primary) 45%, transparent),
+    0 10px 30px -14px color-mix(in oklab, var(--primary) 60%, transparent);
+  --shadow-card: 0 1px 0 color-mix(in oklab, var(--foreground) 4%, transparent),
+    0 18px 40px -28px color-mix(in oklab, var(--foreground) 35%, transparent);
+}
+
+/* Light: Chart Paper */
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.965 0.009 85); /* warm paper */
+  --foreground: oklch(0.29 0.055 245); /* navy ink */
+  --card: oklch(0.995 0.003 85);
+  --card-foreground: oklch(0.29 0.055 245);
+  --popover: oklch(0.995 0.003 85);
+  --popover-foreground: oklch(0.29 0.055 245);
+  --primary: oklch(0.48 0.09 225); /* deep teal */
+  --primary-foreground: oklch(0.985 0.005 85);
+  --secondary: oklch(0.925 0.012 85);
+  --secondary-foreground: oklch(0.29 0.055 245);
+  --muted: oklch(0.935 0.01 85);
+  --muted-foreground: oklch(0.5 0.03 245);
+  --accent: oklch(0.9 0.025 210);
+  --accent-foreground: oklch(0.29 0.055 245);
+  --star: oklch(0.74 0.14 75); /* gold */
+  --star-foreground: oklch(0.25 0.05 60);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.985 0.005 85);
+  --border: oklch(0.29 0.055 245 / 12%);
+  --input: oklch(0.29 0.055 245 / 18%);
+  --ring: oklch(0.48 0.09 225);
+  --starfield: oklch(0.29 0.055 245 / 18%);
+}
+
+/* Dark: Night Sky */
+.dark {
+  --background: oklch(0.18 0.03 250); /* deep navy */
+  --foreground: oklch(0.935 0.012 250);
+  --card: oklch(0.225 0.035 250);
+  --card-foreground: oklch(0.935 0.012 250);
+  --popover: oklch(0.225 0.035 250);
+  --popover-foreground: oklch(0.935 0.012 250);
+  --primary: oklch(0.67 0.1 205); /* compass teal */
+  --primary-foreground: oklch(0.17 0.03 250);
+  --secondary: oklch(0.27 0.035 250);
+  --secondary-foreground: oklch(0.935 0.012 250);
+  --muted: oklch(0.25 0.03 250);
+  --muted-foreground: oklch(0.7 0.025 250);
+  --accent: oklch(0.3 0.045 220);
+  --accent-foreground: oklch(0.95 0.01 250);
+  --star: oklch(0.8 0.13 80); /* North Star gold */
+  --star-foreground: oklch(0.2 0.03 60);
+  --destructive: oklch(0.65 0.19 25);
+  --destructive-foreground: oklch(0.98 0.005 250);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.67 0.1 205);
+  --starfield: oklch(1 0 0 / 35%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+}
+
+@utility surface {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+/* Faint fixed star field built from tiny dots. Used behind pages. */
+@utility starfield {
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, var(--starfield) 50%, transparent 51%),
+    radial-gradient(1px 1px at 68% 9%, var(--starfield) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 84% 42%, var(--starfield) 50%, transparent 51%),
+    radial-gradient(1px 1px at 33% 64%, var(--starfield) 50%, transparent 51%),
+    radial-gradient(1px 1px at 91% 81%, var(--starfield) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 7% 88%, var(--starfield) 50%, transparent 51%),
+    radial-gradient(1px 1px at 52% 32%, var(--starfield) 50%, transparent 51%);
+  background-size: 420px 420px;
+}
+
+/* Small uppercase label used for coordinates / step counters */
+@utility eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
