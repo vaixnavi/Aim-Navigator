@@ -4,8 +4,6 @@
 
 Aim Navigator is a career guidance web platform for school and college students. It uses Holland's RIASEC interest model to understand what a student enjoys, matches them with suitable careers, and shows a clear roadmap for the careers they pick.
 
-> Add a screenshot of the landing page here, for example `![Aim Navigator](./docs/screenshot.png)`
-
 ## The problem
 
 Many students choose a stream or career based on marks, pressure from others, or guesswork. They rarely get a simple way to connect their interests with real careers and the steps needed to reach them.
@@ -30,13 +28,13 @@ Careers are then ranked by the combined score.
 
 ## Tech stack
 
-| Layer | Technology |
-| --- | --- |
-| Frontend | React, TanStack Start, TypeScript, Vite, Tailwind CSS |
-| Backend | Node.js, Express (`aim-navigator-api/`) |
-| Database and auth | Supabase (PostgreSQL, email auth, Google OAuth) |
-| Hosting | Cloudflare (frontend), Render (backend) |
-| Tooling | Bun / npm, ESLint, Prettier |
+| Layer             | Technology                                            |
+| ----------------- | ----------------------------------------------------- |
+| Frontend          | React, TanStack Start, TypeScript, Vite, Tailwind CSS |
+| Backend           | Node.js, Express (`aim-navigator-api/`)               |
+| Database and auth | Supabase (PostgreSQL, email auth, Google OAuth)       |
+| Hosting           | Cloudflare (frontend), Render (backend)               |
+| Tooling           | Bun / npm, ESLint, Prettier                           |
 
 ## Project structure
 
@@ -129,7 +127,7 @@ Open the local address shown in the terminal.
 
 - Utkarsha Kanase
 - Gauri Kumbhar
-- Vasishnavi Mane
+- Vaishnavi Mane
 - Anuja Naik
 
 Built as an academic project.
